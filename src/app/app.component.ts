@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { METHODS } from "http";
+
 
 @Component({
   selector: "app-root",
