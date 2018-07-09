@@ -21,6 +21,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/assets/files",
               "src/uploadForms.php"
             ],
             "styles": [
