@@ -268,10 +268,9 @@ export class AppComponent {
   }
   uploadFormToServer() {
     window.console.log("Submiting Form");
-    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
     let data= this.buildForm();
     let url = "http://abogados.mayorga.com.co/uploadForms.php";
-    axios.post(url,data,config)
+    axios.post(url,data)
       .then(function (response) {
         window.console.log(response.data);
         window.console.log(response);
