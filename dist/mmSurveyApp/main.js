@@ -325,7 +325,7 @@ var AppComponent = /** @class */ (function () {
             window.console.log(response.data);
         })
             .catch(function (error) {
-            window.console.log(error);
+            window.console.log("error");
         });
     };
     AppComponent.prototype.handleError = function (error) {

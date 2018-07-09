@@ -275,7 +275,7 @@ export class AppComponent {
         window.console.log(response.data);
       })
       .catch(function (error) {
-        window.console.log(error);
+        window.console.log("error");
       });
   }
   private handleError(error: Response) {
