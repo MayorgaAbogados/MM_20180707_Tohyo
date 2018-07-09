@@ -273,6 +273,7 @@ export class AppComponent {
     axios.get(url)
       .then(function (response) {
         window.console.log(response.data);
+        window.console.log(response);
       })
       .catch(function (error) {
         window.console.log("error");
