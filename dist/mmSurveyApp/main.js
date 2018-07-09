@@ -41,7 +41,7 @@ module.exports = ".wrapper {\r\n  background-color: #e6f1f9;\r\n  width: 100%;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n\n  <div class=\"header\">\n    <img src=\"../assets/favicon.png\" class=\"header-logo\">\n  </div>\n\n  <div class=\"container shadow\">\n\n    <div class=\"view welcome\" *ngIf=\"viewState == 'welcome'\">\n      <br>\n      <h1>INSTRUCCIONES:</h1>\n      <br>\n      <p>La presente prueba virtual contiene solo 3 PREGUNTAS.\n        <br>\n        <br> Cada respuesta (una sola por pregunta) debe brindarse seleccionando y ADJUNTANDO UN ARCHIVO que contenga el documento\n        solicitado\n        <br>( WORD o PDF, a su criterio).</p>\n      <br>\n      <button (click)=\"goTo('info-personal')\">SIGUIENTE</button>\n    </div>\n    <div class=\"view info-personal\" *ngIf=\"viewState == 'info-personal'\">\n\n      <h1>INFORMACIÓN DE CONTACTO</h1>\n\n      <div class=\"question\">\n        <label>NOMBRES Y APELLIDOS\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Ingresa tus nombres y apellidos\" type=\"text\" [(ngModel)]=\"info.name\">\n        <span class=\"error\" *ngIf=\"errors.info.name\">{{errors.info.name}}\n        </span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>CORREO ELECTRONICO\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Ingresa tu dirección de correo electrónico\" type=\"email\" [(ngModel)]=\"info.email\">\n        <span class=\"error\" *ngIf=\"errors.info.email\">{{errors.info.email}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>IDENTIFICACIÓN (C.C o C.E)\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Ingresa tu numero de documento de identificación\" type=\"text\" [(ngModel)]=\"info.id.number\">\n        <select [(ngModel)]=\"info.id.type\">\n          <option *ngFor=\"let  idType of  idTypes\" [value]=\" idType\">{{ idType}}</option>\n        </select>\n        <span class=\"error\" *ngIf=\"errors.info.id.number\">{{errors.info.id.number}}</span>\n        <span class=\"error\" *ngIf=\"errors.info.id.type\">{{errors.info.id.type}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>NUMERO DE TARJETA PROFESIONAL\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Ingresa tu numero de tarjeta profesional\" type=\"email\" [(ngModel)]=\"info.professionalCard\">\n        <span class=\"error\" *ngIf=\"errors.info.professionalCard\">{{errors.info.professionalCard}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>CELULAR\n          <span class=\"asterix\">*</span>\n        </label>\n        <input type=\"tel\" [(ngModel)]=\"info.cellphone\" placeholder=\"Ingresa un numero de celular \">\n        <span class=\"error\" *ngIf=\"errors.info.cellphone\">{{errors.info.cellphone}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>CIUDAD\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Ingresa tu ciudad de residencia\" type=\"text\" [(ngModel)]=\"info.city\">\n        <span class=\"error\" *ngIf=\"errors.info.city\">{{errors.info.city}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>TELEFONO FIJO CON INDICATIVO (OPCIONAL)\n        </label>\n        <input type=\"tel\" [(ngModel)]=\"info.phone\" placeholder=\"Ingresa un numero de telefono \">\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>DIRECCIÓN (OPCIONAL)\n        </label>\n        <input placeholder=\"Ingresa tu dirección\" type=\"text\" [(ngModel)]=\"info.address\">\n      </div>\n      <br>\n\n\n\n      <br>\n      <button (click)=\"goTo('welcome')\">ATRAS</button>\n      <button (click)=\"goTo('info-professional')\">SIGUIENTE</button>\n    </div>\n    <div class=\"view info-professional\" *ngIf=\"viewState == 'info-professional'\">\n\n      <h1>INFORMACIÓN PROFESIONAL</h1>\n\n      <div class=\"question\">\n        <label>UNIVERSIDAD EN QUE OBTUVO TITULO DE ABOGADO\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Nombre de la universidad\" type=\"text\" [(ngModel)]=\"professional.undegraduated.institution\">\n        <input placeholder=\"Año de graduación\" type=\"year\" [(ngModel)]=\"professional.undegraduated.year\">\n        <span class=\"error\" *ngIf=\"errors.professional.undegraduated.institution\">{{errors.professional.undegraduated.institution}}</span>\n        <span class=\"error\" *ngIf=\"errors.professional.undegraduated.year\">{{errors.professional.undegraduated.year}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>UNIVERSIDAD EN QUE OBTUVO TITULO DE POSTGRADO\n          <span class=\"asterix\">*</span>\n        </label>\n        <input placeholder=\"Nombre de la universidad\" type=\"text\" [(ngModel)]=\"professional.graduated.institution\">\n        <input placeholder=\"Año de graduación\" type=\"year\" [(ngModel)]=\"professional.graduated.year\">\n        <select [(ngModel)]=\"professional.title\" class=\"area\" (change)=\"onChange()\">\n          <option *ngFor=\"let title of titles\" [value]=\"title\">{{title}}</option>\n        </select>\n        <span class=\"error\" *ngIf=\"errors.professional.graduated.institution\">{{errors.professional.graduated.institution}}</span>\n        <span class=\"error\" *ngIf=\"errors.professional.graduated.year\">{{errors.professional.graduated.year}}</span>\n        <span class=\"error\" *ngIf=\"errors.professional.title\">{{errors.professional.title}}</span>\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label> SELECCIONE SU ESPECIALIDAD\n          <span class=\"asterix\">*</span>\n        </label>\n        <select [(ngModel)]=\"professional.area.type\" class=\"area\" (change)=\"onChange()\">\n          <option *ngFor=\"let area of areas\" [value]=\"area\">{{area}}</option>\n        </select>\n        <input placeholder=\"Especifique su especialidad\" type=\"text\" [(ngModel)]=\"professional.area.other\" *ngIf=\"isAreaOther\">\n        <span class=\"error\" *ngIf=\"errors.professional.area.main\">{{errors.professional.area.main}}</span>\n\n      </div>\n      <br>\n\n      <br>\n      <button (click)=\"goTo('info-personal')\">ATRAS</button>\n      <button (click)=\"goTo('exam')\">SIGUIENTE</button>\n    </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <div class=\"view info\" *ngIf=\"viewState == 'exam'\">\n\n      <h1>PRUEBAS ABOGADO ESPECIALISTA</h1>\n      <br>\n\n      <div class=\"question\">\n        <label>Favor redacte propuesta y sustentación de modificación de un artículo de una ley, decreto o resolución del área de\n          su especialidad ; en máximo una página tamaño carta.</label>\n        <label for=\"file1\" class=\"labelfile\">{{files.proposalText}}</label>\n        <input id=\"file1\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeProposal($event)\" accept=\".pdf,.doc,.docx\" />\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>Favor adjunte un archivo de recurso judicial, demanda o alegatos de conclusión que en los últimos tres años haya\n          redactado en su ESPECIALIDAD.</label>\n        <label for=\"file2\" class=\"labelfile\">{{files.resourceText}}</label>\n        <input id=\"file2\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeResource($event)\" accept=\".pdf,.doc,.docx\">\n      </div>\n      <br>\n\n      <div class=\"question\">\n        <label>Favor adjunte un \"CONCEPTO JURIDICO ESCRITO\" que en los últimos tres años haya redactado en su especialidad.</label>\n        <label for=\"file3\" class=\"labelfile\">{{files.conceptText}}</label>\n        <input id=\"file3\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeConcept($event)\" accept=\".pdf,.doc,.docx\">\n      </div>\n      <br>\n\n      <br>\n      <button (click)=\"goTo('info-professional')\">ATRAS</button>\n      <button (click)=\"goTo('confirm')\">CONFIRMAR</button>\n    </div>\n\n    <div class=\"view confirm\" *ngIf=\"viewState == 'confirm'\">\n\n      <br>\n      <h1>CONFIRMAR ENVIAR PRUEBA</h1>\n      <ul>\n        <li>\n          <strong>NOMBRES</strong> : {{info.name}}</li>\n        <li>\n          <strong>CORREO ELECTRONICO </strong>:{{info.email}} </li>\n        <li>\n          <strong>IDENTIFICACIÓN </strong>: {{info.id.tpye}} {{info.id.number}}</li>\n        <li>\n          <strong>TELEFONO CELULAR</strong> : {{info.cellphone}}</li>\n        <li *ngIf=\"info.phone\">\n          <strong>TELEFONO FIJO</strong> : {{info.phone}}</li>\n        <li>RESIDE EN LA CIUDAD DE {{info.city}}\n          <span *ngIf=\"info.address\">\n            <strong>EN LA DIRECCIÓN</strong>\n          </span> {{info.address}}</li>\n        <li> GRAUADO DE ABOGADO EN LA UNIVERSIDAD\n          <strong>{{professional.undegraduated.institution}}</strong> EL AÑO {{professional.undegraduated.year}}</li>\n        <li>{{professional.title}} EN\n          <strong>{{professional.area.main}}</strong> DE LA UNIVERSIDAD {{professional.graduated.institution}} GRADUADO EL AÑO {{professional.undegraduated.year}}\n        </li>\n      </ul>\n\n      <button (click)=\"goTo('exam')\">ATRAS</button>\n      <button (click)=\"submitForm()\">ENVIAR</button>\n    </div>\n\n    <div class=\"view thanks\" *ngIf=\"viewState == 'thanks'\">\n      <h1>MUCHAS GRACIAS </h1>\n      <h2>Pronto nuestro equipo se comunicara con usted via email al correo {{info.email}}\n        <br> o mediante llamada telefonica al numero {{info.cellphone}}</h2>\n    </div>\n\n\n  </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  <div class=\"footer\">\n    <h3>\n      Si tiene problemas técnicos para presentar la prueba, que por favor nos escriban sus preguntas o inquietudes a\n      <a href=\"mailto:INFO@MAYORGA.COM.CO\">info@mayorga.com.co</a>\n    </h3>\n    <br>\n    <br> Todos los derechos reservados Copyright © {{currentYear}}. Desarrollado por Mayorga Abogados.\n    <br>\n    <br> SEDE 1 (Consultoría Corporativa) Av. El Dorado No. 68C-61 Oficina 204-Torre Central Davivienda\n    <br> SEDE 2 (Arbitramento y Litigio): Calle 22 F No. 85 A-40 Piso 2\n    <br> Bogotá D.C. - Colombia\n    <br>\n    <a href=\"http://mayorga.com.co\"> www.mayorga.com.co </a>\n  </div>"
+module.exports = "<div class=\"wrapper\">\r\n\r\n  <div class=\"header\">\r\n    <img src=\"../assets/favicon.png\" class=\"header-logo\">\r\n  </div>\r\n\r\n  <div class=\"container shadow\">\r\n\r\n    <div class=\"view welcome\" *ngIf=\"viewState == 'welcome'\">\r\n      <br>\r\n      <h1>INSTRUCCIONES:</h1>\r\n      <br>\r\n      <p>La presente prueba virtual contiene solo 3 PREGUNTAS.\r\n        <br>\r\n        <br> Cada respuesta (una sola por pregunta) debe brindarse seleccionando y ADJUNTANDO UN ARCHIVO que contenga el documento\r\n        solicitado\r\n        <br>( WORD o PDF, a su criterio).</p>\r\n      <br>\r\n      <button (click)=\"goTo('info-personal')\">SIGUIENTE</button>\r\n    </div>\r\n    <div class=\"view info-personal\" *ngIf=\"viewState == 'info-personal'\">\r\n\r\n      <h1>INFORMACIÓN DE CONTACTO</h1>\r\n\r\n      <div class=\"question\">\r\n        <label>NOMBRES Y APELLIDOS\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Ingresa tus nombres y apellidos\" type=\"text\" [(ngModel)]=\"info.name\">\r\n        <span class=\"error\" *ngIf=\"errors.info.name\">{{errors.info.name}}\r\n        </span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>CORREO ELECTRONICO\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Ingresa tu dirección de correo electrónico\" type=\"email\" [(ngModel)]=\"info.email\">\r\n        <span class=\"error\" *ngIf=\"errors.info.email\">{{errors.info.email}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>IDENTIFICACIÓN (C.C o C.E)\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Ingresa tu numero de documento de identificación\" type=\"text\" [(ngModel)]=\"info.id.number\">\r\n        <select [(ngModel)]=\"info.id.type\">\r\n          <option *ngFor=\"let  idType of  idTypes\" [value]=\" idType\">{{ idType}}</option>\r\n        </select>\r\n        <span class=\"error\" *ngIf=\"errors.info.id.number\">{{errors.info.id.number}}</span>\r\n        <span class=\"error\" *ngIf=\"errors.info.id.type\">{{errors.info.id.type}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>NUMERO DE TARJETA PROFESIONAL\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Ingresa tu numero de tarjeta profesional\" type=\"email\" [(ngModel)]=\"info.professionalCard\">\r\n        <span class=\"error\" *ngIf=\"errors.info.professionalCard\">{{errors.info.professionalCard}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>CELULAR\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input type=\"tel\" [(ngModel)]=\"info.cellphone\" placeholder=\"Ingresa un numero de celular \">\r\n        <span class=\"error\" *ngIf=\"errors.info.cellphone\">{{errors.info.cellphone}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>CIUDAD\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Ingresa tu ciudad de residencia\" type=\"text\" [(ngModel)]=\"info.city\">\r\n        <span class=\"error\" *ngIf=\"errors.info.city\">{{errors.info.city}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>TELEFONO FIJO CON INDICATIVO (OPCIONAL)\r\n        </label>\r\n        <input type=\"tel\" [(ngModel)]=\"info.phone\" placeholder=\"Ingresa un numero de telefono \">\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>DIRECCIÓN (OPCIONAL)\r\n        </label>\r\n        <input placeholder=\"Ingresa tu dirección\" type=\"text\" [(ngModel)]=\"info.address\">\r\n      </div>\r\n      <br>\r\n\r\n      <br>\r\n      <button (click)=\"goTo('welcome')\">ATRAS</button>\r\n      <button (click)=\"goTo('info-professional')\">SIGUIENTE</button>\r\n    </div>\r\n    <div class=\"view info-professional\" *ngIf=\"viewState == 'info-professional'\">\r\n\r\n      <h1>INFORMACIÓN PROFESIONAL</h1>\r\n\r\n      <div class=\"question\">\r\n        <label>UNIVERSIDAD EN QUE OBTUVO TITULO DE ABOGADO\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Nombre de la universidad\" type=\"text\" [(ngModel)]=\"professional.undegraduated.institution\">\r\n        <input placeholder=\"Año de graduación\" type=\"year\" [(ngModel)]=\"professional.undegraduated.year\">\r\n        <span class=\"error\" *ngIf=\"errors.professional.undegraduated.institution\">{{errors.professional.undegraduated.institution}}</span>\r\n        <span class=\"error\" *ngIf=\"errors.professional.undegraduated.year\">{{errors.professional.undegraduated.year}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>UNIVERSIDAD EN QUE OBTUVO TITULO DE POSTGRADO\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <input placeholder=\"Nombre de la universidad\" type=\"text\" [(ngModel)]=\"professional.graduated.institution\">\r\n        <input placeholder=\"Año de graduación\" type=\"year\" [(ngModel)]=\"professional.graduated.year\">\r\n        <select [(ngModel)]=\"professional.title\" class=\"area\" (change)=\"onChange()\">\r\n          <option *ngFor=\"let title of titles\" [value]=\"title\">{{title}}</option>\r\n        </select>\r\n        <span class=\"error\" *ngIf=\"errors.professional.graduated.institution\">{{errors.professional.graduated.institution}}</span>\r\n        <span class=\"error\" *ngIf=\"errors.professional.graduated.year\">{{errors.professional.graduated.year}}</span>\r\n        <span class=\"error\" *ngIf=\"errors.professional.title\">{{errors.professional.title}}</span>\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label> SELECCIONE SU ESPECIALIDAD\r\n          <span class=\"asterix\">*</span>\r\n        </label>\r\n        <select [(ngModel)]=\"professional.area.type\" class=\"area\" (change)=\"onChange()\">\r\n          <option *ngFor=\"let area of areas\" [value]=\"area\">{{area}}</option>\r\n        </select>\r\n        <input placeholder=\"Especifique su especialidad\" type=\"text\" [(ngModel)]=\"professional.area.other\" *ngIf=\"isAreaOther\">\r\n        <span class=\"error\" *ngIf=\"errors.professional.area.main\">{{errors.professional.area.main}}</span>\r\n\r\n      </div>\r\n      <br>\r\n\r\n      <br>\r\n      <button (click)=\"goTo('info-personal')\">ATRAS</button>\r\n      <button (click)=\"goTo('exam')\">SIGUIENTE</button>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"view info\" *ngIf=\"viewState == 'exam'\">\r\n\r\n      <h1>PRUEBAS ABOGADO ESPECIALISTA</h1>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>Favor redacte propuesta y sustentación de modificación de un artículo de una ley, decreto o resolución del área de\r\n          su especialidad ; en máximo una página tamaño carta.</label>\r\n        <label for=\"file1\" class=\"labelfile\">{{files.proposalText}}</label>\r\n        <input id=\"file1\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeProposal($event)\" accept=\".pdf,.doc,.docx\" />\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>Favor adjunte un archivo de recurso judicial, demanda o alegatos de conclusión que en los últimos tres años haya\r\n          redactado en su ESPECIALIDAD.</label>\r\n        <label for=\"file2\" class=\"labelfile\">{{files.resourceText}}</label>\r\n        <input id=\"file2\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeResource($event)\" accept=\".pdf,.doc,.docx\">\r\n      </div>\r\n      <br>\r\n\r\n      <div class=\"question\">\r\n        <label>Favor adjunte un \"CONCEPTO JURIDICO ESCRITO\" que en los últimos tres años haya redactado en su especialidad.</label>\r\n        <label for=\"file3\" class=\"labelfile\">{{files.conceptText}}</label>\r\n        <input id=\"file3\" class=\"inputfile\" type=\"file\" (change)=\"onFileChangeConcept($event)\" accept=\".pdf,.doc,.docx\">\r\n      </div>\r\n      <br>\r\n\r\n      <br>\r\n      <button (click)=\"goTo('info-professional')\">ATRAS</button>\r\n      <button (click)=\"goTo('confirm')\">CONFIRMAR</button>\r\n    </div>\r\n\r\n    <div class=\"view confirm\" *ngIf=\"viewState == 'confirm'\">\r\n\r\n      <br>\r\n      <h1>CONFIRMAR ENVIAR PRUEBA</h1>\r\n      <ul>\r\n        <li>\r\n          <strong>NOMBRES</strong> : {{info.name}}</li>\r\n        <li>\r\n          <strong>CORREO ELECTRONICO </strong>:{{info.email}} </li>\r\n        <li>\r\n          <strong>IDENTIFICACIÓN </strong>: {{info.id.tpye}} {{info.id.number}}</li>\r\n        <li>\r\n          <strong>TELEFONO CELULAR</strong> : {{info.cellphone}}</li>\r\n        <li *ngIf=\"info.phone\">\r\n          <strong>TELEFONO FIJO</strong> : {{info.phone}}</li>\r\n        <li>RESIDE EN LA CIUDAD DE {{info.city}}\r\n          <span *ngIf=\"info.address\">\r\n            <strong>EN LA DIRECCIÓN</strong>\r\n          </span> {{info.address}}</li>\r\n        <li> GRAUADO DE ABOGADO EN LA UNIVERSIDAD\r\n          <strong>{{professional.undegraduated.institution}}</strong> EL AÑO {{professional.undegraduated.year}}</li>\r\n        <li>{{professional.title}} EN\r\n          <strong>{{professional.area.main}}</strong> DE LA UNIVERSIDAD {{professional.graduated.institution}} GRADUADO EL AÑO {{professional.undegraduated.year}}\r\n        </li>\r\n      </ul>\r\n\r\n      <button (click)=\"goTo('exam')\">ATRAS</button>\r\n      <button (click)=\"submitForm()\">ENVIAR</button>\r\n    </div>\r\n\r\n    <div class=\"view thanks\" *ngIf=\"viewState == 'thanks'\">\r\n      <h1>MUCHAS GRACIAS </h1>\r\n      <h2>Pronto nuestro equipo se comunicara con usted via email al correo {{info.email}}\r\n        <br> o mediante llamada telefonica al numero {{info.cellphone}}</h2>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  <div class=\"footer\">\r\n    <h3>\r\n      Si tiene problemas técnicos para presentar la prueba, que por favor nos escriban sus preguntas o inquietudes a\r\n      <a href=\"mailto:INFO@MAYORGA.COM.CO\">info@mayorga.com.co</a>\r\n    </h3>\r\n    <br>\r\n    <br> Todos los derechos reservados Copyright © {{currentYear}}. Desarrollado por Mayorga Abogados.\r\n    <br>\r\n    <br> SEDE 1 (Consultoría Corporativa) Av. El Dorado No. 68C-61 Oficina 204-Torre Central Davivienda\r\n    <br> SEDE 2 (Arbitramento y Litigio): Calle 22 F No. 85 A-40 Piso 2\r\n    <br> Bogotá D.C. - Colombia\r\n    <br>\r\n    <a href=\"http://mayorga.com.co\"> www.mayorga.com.co </a>\r\n  </div>"
 
 /***/ }),
 
@@ -56,6 +56,9 @@ module.exports = "<div class=\"wrapper\">\n\n  <div class=\"header\">\n    <img 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,8 +69,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(http) {
+        this.http = http;
         // TODO : DATOS PERSONALES, INSTRUCCIONES, 2 ipnput file opcionales
         this.title = "app";
         this.fileToUpload = null;
@@ -164,7 +170,7 @@ var AppComponent = /** @class */ (function () {
         this.viewState = "welcome";
     }
     AppComponent.prototype.ngOnInit = function () { };
-    AppComponent.prototype.submitForm = function () {
+    AppComponent.prototype.buildForm = function () {
         var formData = new FormData();
         formData.append("name", this.info.name);
         formData.append("email", this.info.email);
@@ -183,8 +189,7 @@ var AppComponent = /** @class */ (function () {
         formData.append("FileProposal", this.files.proposal);
         formData.append("FileResource", this.files.resource);
         formData.append("FileConcept", this.files.concept);
-        window["theForm"] = formData;
-        window.console.log(formData);
+        return formData;
         //this.goTo("thanks");
     };
     AppComponent.prototype.goTo = function (view) {
@@ -311,13 +316,27 @@ var AppComponent = /** @class */ (function () {
         this.files.concept = file;
         this.files.conceptText = file.name;
     };
+    AppComponent.prototype.uploadFormToServer = function () {
+        var theForm = this.buildForm();
+        var url = "http://abogados.mayorga.com.co/uploadForms.php";
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url)
+            .then(function (response) {
+            console.log(response);
+        })
+            .catch(function (error) {
+            console.log(error);
+        });
+    };
+    AppComponent.prototype.handleError = function (error) {
+        console.error(error);
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: "app-root",
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -416,7 +435,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  footer works!\n</p>\n"
+module.exports = "<p>\r\n  footer works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -479,7 +498,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  header works!\n</p>\n"
+module.exports = "<p>\r\n  header works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -542,7 +561,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  vw-exam works!\n</p>\n"
+module.exports = "<p>\r\n  vw-exam works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -605,7 +624,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  vw-personal-info works!\n</p>\n"
+module.exports = "<p>\r\n  vw-personal-info works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -668,7 +687,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  vw-thanks works!\n</p>\n"
+module.exports = "<p>\r\n  vw-thanks works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -731,7 +750,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  vw-welcome works!\n</p>\n"
+module.exports = "<p>\r\n  vw-welcome works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -836,7 +855,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\walla\Documents\GitHub\MM_20180707_Tohyo\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\User.THESIGN_MALE\Documents\GitHub\MM_20180707_Tohyo\src\main.ts */"./src/main.ts");
 
 
 /***/ })

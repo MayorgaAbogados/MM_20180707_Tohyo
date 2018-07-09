@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Http } from "@angular/http";
+import axios from 'axios';
 
 @Component({
   selector: "app-root",
@@ -100,12 +102,12 @@ export class AppComponent {
       }
     }
   };
-  constructor() {
+  constructor(private http: Http) {
     this.viewState = "welcome";
   }
 
-  ngOnInit() {}
-  submitForm() {
+  ngOnInit() { }
+  buildForm() {
     let formData = new FormData();
     formData.append("name", this.info.name);
     formData.append("email", this.info.email);
@@ -138,8 +140,7 @@ export class AppComponent {
     formData.append("FileProposal", this.files.proposal);
     formData.append("FileResource", this.files.resource);
     formData.append("FileConcept", this.files.concept);
-    window["theForm"] = formData;
-    window.console.log(formData);
+    return formData;
     //this.goTo("thanks");
   }
   goTo(view) {
@@ -264,5 +265,19 @@ export class AppComponent {
     let file: File = event.target.files[0];
     this.files.concept = file;
     this.files.conceptText = file.name;
+  }
+  uploadFormToServer() {
+    let theForm = this.buildForm();
+    let url = "http://abogados.mayorga.com.co/uploadForms.php";
+    axios.get(url)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  private handleError(error: Response) {
+    console.error(error);
   }
 }
