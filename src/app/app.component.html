@@ -5,6 +5,7 @@
   </div>
 
   <div class="container shadow">
+
     <div class="view welcome" *ngIf="viewState == 'welcome'">
       <br>
       <h1>INSTRUCCIONES:</h1>
@@ -177,20 +178,23 @@
       <div class="question">
         <label>Favor redacte propuesta y sustentación de modificación de un artículo de una ley, decreto o resolución del área de
           su especialidad ; en máximo una página tamaño carta.</label>
-        <input placeholder="Tu Respuesta" type="file">
+        <label for="file1" class="labelfile">{{files.proposalText}}</label>
+        <input id="file1" class="inputfile" type="file" (change)="onFileChangeProposal($event)" accept=".pdf,.doc,.docx" />
       </div>
       <br>
 
       <div class="question">
         <label>Favor adjunte un archivo de recurso judicial, demanda o alegatos de conclusión que en los últimos tres años haya
           redactado en su ESPECIALIDAD.</label>
-        <input placeholder="Tu Respuesta" type="file">
+        <label for="file2" class="labelfile">{{files.resourceText}}</label>
+        <input id="file2" class="inputfile" type="file" (change)="onFileChangeResource($event)" accept=".pdf,.doc,.docx">
       </div>
       <br>
 
       <div class="question">
         <label>Favor adjunte un "CONCEPTO JURIDICO ESCRITO" que en los últimos tres años haya redactado en su especialidad.</label>
-        <input placeholder="Tu Respuesta" type="file">
+        <label for="file3" class="labelfile">{{files.conceptText}}</label>
+        <input id="file3" class="inputfile" type="file" (change)="onFileChangeConcept($event)" accept=".pdf,.doc,.docx">
       </div>
       <br>
 
@@ -226,7 +230,7 @@
       </ul>
 
       <button (click)="goTo('exam')">ATRAS</button>
-      <button (click)="goTo('thanks')">ENVIAR</button>
+      <button (click)="submitForm()">ENVIAR</button>
     </div>
 
     <div class="view thanks" *ngIf="viewState == 'thanks'">
@@ -234,7 +238,6 @@
       <h2>Pronto nuestro equipo se comunicara con usted via email al correo {{info.email}}
         <br> o mediante llamada telefonica al numero {{info.cellphone}}</h2>
     </div>
-
 
 
   </div>

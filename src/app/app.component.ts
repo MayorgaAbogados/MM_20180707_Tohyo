@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -9,6 +8,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   // TODO : DATOS PERSONALES, INSTRUCCIONES, 2 ipnput file opcionales
   title = "app";
+  fileToUpload: File = null;
   currentYear = "2018";
   viewState = "welcome";
   checkError = "";
@@ -60,6 +60,15 @@ export class AppComponent {
       other: ""
     }
   };
+  files = {
+    proposal: null,
+    resource: null,
+    concept: null,
+    proposalText: "ADJUNTAR PROPUESTA",
+    resourceText: "ADJUNTAR RECURSO",
+    conceptText: "ADJUNTAR CONCEPTO"
+  };
+
   errors = {
     info: {
       name: "",
@@ -96,7 +105,43 @@ export class AppComponent {
   }
 
   ngOnInit() {}
+  submitForm() {
+    let formData = new FormData();
+    formData.append("name", this.info.name);
+    formData.append("email", this.info.email);
 
+    formData.append("idNumber", this.info.id.number);
+    formData.append("idType", this.info.id.type);
+
+    formData.append("professionalCard", this.info.professionalCard);
+
+    formData.append("cellphone", this.info.cellphone);
+    formData.append("city", this.info.city);
+
+    formData.append("address", this.info.address);
+    formData.append("phone", this.info.phone);
+
+    formData.append(
+      "undergraduateInstitution",
+      this.professional.undegraduated.institution
+    );
+    formData.append("undergraduateYear", this.professional.undegraduated.year);
+
+    formData.append(
+      "graduateInstitution",
+      this.professional.graduated.institution
+    );
+    formData.append("graduateYear", this.professional.graduated.year);
+
+    formData.append("area", this.professional.area.main);
+
+    formData.append("FileProposal", this.files.proposal);
+    formData.append("FileResource", this.files.resource);
+    formData.append("FileConcept", this.files.concept);
+    window["theForm"] = formData;
+    window.console.log(formData);
+    //this.goTo("thanks");
+  }
   goTo(view) {
     if (this.viewState == "welcome" || view == "welcome") {
       this.viewState = view;
@@ -204,5 +249,20 @@ export class AppComponent {
   validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+  onFileChangeProposal(event) {
+    let file: File = event.target.files[0];
+    this.files.proposal = file;
+    this.files.proposalText = file.name;
+  }
+  onFileChangeResource(event) {
+    let file: File = event.target.files[0];
+    this.files.resource = file;
+    this.files.resourceText = file.name;
+  }
+  onFileChangeConcept(event) {
+    let file: File = event.target.files[0];
+    this.files.concept = file;
+    this.files.conceptText = file.name;
   }
 }

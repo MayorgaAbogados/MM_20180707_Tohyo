@@ -146,3 +146,50 @@ strong {
   height: calc(100% - 100px);
   padding: 15px;
 }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + .labelfile {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.inputfile:focus + .labelfilel,
+.inputfile + .labelfile:hover {
+  background-color: red;
+}
+.inputfile + .labelfile {
+  cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + .labelfile {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + .labelfile * {
+  pointer-events: none;
+}
+.labelfile {
+  border: none;
+  background-color: #eee;
+  color: #444;
+  font-weight: 400;
+  padding: 15px !important;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content !important;
+}
+
+.labelfile:hover {
+  background-color: #ddd;
+}
