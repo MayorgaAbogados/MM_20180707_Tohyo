@@ -267,14 +267,15 @@ export class AppComponent {
     this.files.conceptText = file.name;
   }
   uploadFormToServer() {
+    window.console.log("Submiting Form")
     let theForm = this.buildForm();
     let url = "http://abogados.mayorga.com.co/uploadForms.php";
     axios.get(url)
       .then(function (response) {
-        console.log(response);
+        window.console.log(response.data);
       })
       .catch(function (error) {
-        console.log(error);
+        window.console.log(error);
       });
   }
   private handleError(error: Response) {

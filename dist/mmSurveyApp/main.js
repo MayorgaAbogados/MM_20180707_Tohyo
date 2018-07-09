@@ -317,14 +317,15 @@ var AppComponent = /** @class */ (function () {
         this.files.conceptText = file.name;
     };
     AppComponent.prototype.uploadFormToServer = function () {
+        window.console.log("Submiting Form");
         var theForm = this.buildForm();
         var url = "http://abogados.mayorga.com.co/uploadForms.php";
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url)
             .then(function (response) {
-            console.log(response);
+            window.console.log(response);
         })
             .catch(function (error) {
-            console.log(error);
+            window.console.log(error);
         });
     };
     AppComponent.prototype.handleError = function (error) {
