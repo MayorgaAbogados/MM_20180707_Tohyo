@@ -322,7 +322,7 @@ var AppComponent = /** @class */ (function () {
         var url = "http://abogados.mayorga.com.co/uploadForms.php";
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url)
             .then(function (response) {
-            window.console.log(response);
+            window.console.log(response.data);
         })
             .catch(function (error) {
             window.console.log(error);
