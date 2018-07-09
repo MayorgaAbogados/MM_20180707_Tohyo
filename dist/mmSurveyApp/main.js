@@ -320,9 +320,10 @@ var AppComponent = /** @class */ (function () {
         window.console.log("Submiting Form");
         var theForm = this.buildForm();
         var url = "http://abogados.mayorga.com.co/uploadForms.php";
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url)
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post(url)
             .then(function (response) {
             window.console.log(response.data);
+            window.console.log(response);
         })
             .catch(function (error) {
             window.console.log("error");

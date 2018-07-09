@@ -270,7 +270,7 @@ export class AppComponent {
     window.console.log("Submiting Form")
     let theForm = this.buildForm();
     let url = "http://abogados.mayorga.com.co/uploadForms.php";
-    axios.get(url)
+    axios.post(url)
       .then(function (response) {
         window.console.log(response.data);
         window.console.log(response);
