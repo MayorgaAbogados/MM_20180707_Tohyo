@@ -35,7 +35,7 @@
   $mmDB = new MMDB();
 
   if(!$mmDB->getConnStatus()){
-    echo $mmDB.appendForm($mmForm);
+    echo $mmDB->appendForm($mmForm);
   }else{
     echo $mmDB->getConnStatus();
   }
