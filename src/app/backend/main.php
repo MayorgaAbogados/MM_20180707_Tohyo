@@ -28,11 +28,15 @@
   );
   $mmForm = new MMForm($keys);
 
-  $mFileProposal = new MMFile('FileProposal');
-  $mFileResource = new MMFile('FileResource');
-  $mFileConcept = new MMFile('FileConcept');
+  $mFileProposal = new MMFile('FileProposal','Propuesta');
+  $mFileResource = new MMFile('FileResource','Recurso');
+  $mFileConcept = new MMFile('FileConcept','Concepto');
 
   $mmDB = new MMDB();
+
+  $mmDB->FileProposal = $mFileProposal;
+  $mmDB->FileResource  = $mFileResource;
+  $mmDB->FileConcept = $mFileConcept;
 
   if(!$mmDB->getConnStatus()){
     echo $mmDB->appendForm($mmForm);
