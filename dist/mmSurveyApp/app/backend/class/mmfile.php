@@ -22,11 +22,12 @@ class MMFile{
     $filesPath = "./files";
 
     $this->folder = $_POST['idNumber']."_".$name;
-    mkdir($this->folder);
     mkdir($filesPath);
+    mkdir($filesPath."/".$this->folder);
+
 
     if(is_uploaded_file($temp)) {
-      $newPath = $filesPath . $this->folder."/".$category. $name;
+      $newPath = $filesPath."/".$this->folder."/".$category."_". $name;
       echo $newPath;
       if(move_uploaded_file($temp, $newPath)) {
           echo "Sussecfully uploaded your image.";
