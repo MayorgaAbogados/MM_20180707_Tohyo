@@ -58,7 +58,7 @@ class MMDB{
     }
 
     $queryKeys = $queryKeys.$keys[(count($keys) - 1)].") ";
-    $queryValues = $queryValues.$data[(count($keys) - 1)].") ";
+    $queryValues = $queryValues."'".$data[(count($keys) - 1)]."'".") ";
 
     $sql = "INSERT INTO db_especialistas".$queryKeys."VALUES ".$queryValues;
     $returnvar = "";
