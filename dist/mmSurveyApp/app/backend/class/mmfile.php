@@ -23,9 +23,10 @@ class MMFile{
 
     $this->folder = $_POST['idNumber']."_".$name;
     mkdir($this->folder);
+    mkdir($filesPath);
 
     if(is_uploaded_file($temp)) {
-      if(move_uploaded_file($temp, $filesPath . $category)) {
+      if(move_uploaded_file($temp, $filesPath . $this->folder. $category)) {
           echo "Sussecfully uploaded your image.";
       }
       else {
