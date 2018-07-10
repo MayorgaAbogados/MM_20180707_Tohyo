@@ -2,7 +2,9 @@
   background-color: #e6f1f9;
   width: 100%;
   height: auto;
+  min-height: 100vh;
 }
+
 .header {
   width: 100%;
   height: 200px;
@@ -12,6 +14,7 @@
   background-size: cover;
   background-position: top center;
 }
+
 .container {
   width: calc(100% - 150px);
   padding: 55px;
@@ -31,6 +34,7 @@
   -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
+
 .footer {
   width: 100%;
   min-height: 300px;
@@ -39,9 +43,9 @@
   display: block;
   text-align: center;
   font: 400 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-
   color: rgba(0, 0, 0, 0.66);
 }
+
 .footer h3 {
   font-size: 1.25em;
   font-weight: 500;
@@ -57,6 +61,7 @@
   font-weight: 700;
   font-size: 25pt;
 }
+
 .view p {
   text-align: left;
   line-height: 1.5em;
@@ -74,47 +79,51 @@ button {
   cursor: pointer;
   min-width: 8em;
 }
+
 button:hover {
   background-color: #ddd;
 }
 
 .question {
   display: block;
-
   width: 100%;
   height: fit-content;
-
   text-align: left;
-
   padding: 5px;
   margin: 5px;
 }
+
 .question label {
   display: block;
   padding: 5px;
   margin: 5px 0px;
 }
+
 .question input {
   display: inline-block;
   width: 275px;
   padding: 5px;
   margin: 5px;
 }
+
 .question input[type="year"] {
   display: inline-block;
   width: 120px;
   padding: 5px;
   margin: 5px;
 }
+
 .question select {
   display: inline-block;
   width: 85px;
   padding: 5px;
   margin: 5px;
 }
+
 .question select.area {
   width: 200px;
 }
+
 .question span.error {
   display: block;
   padding: 5px;
@@ -122,6 +131,7 @@ button:hover {
   font-size: 0.8em;
   color: red;
 }
+
 .question .asterix {
   font-size: 1.1em;
   color: red;
@@ -131,11 +141,13 @@ ul {
   padding: 5px;
   text-align: left;
 }
+
 li {
   padding: 10px;
   text-transform: uppercase;
   line-height: 1.1em;
 }
+
 strong {
   font-weight: 600;
 }
@@ -168,16 +180,21 @@ strong {
 .inputfile + .labelfile:hover {
   background-color: red;
 }
+
 .inputfile + .labelfile {
-  cursor: pointer; /* "hand" cursor */
+  cursor: pointer;
+  /* "hand" cursor */
 }
+
 .inputfile:focus + .labelfile {
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
 }
+
 .inputfile + .labelfile * {
   pointer-events: none;
 }
+
 .labelfile {
   border: none;
   background-color: #eee;

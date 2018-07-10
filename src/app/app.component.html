@@ -227,6 +227,12 @@
         </li>
       </ul>
 
+      <h2 *ngIf="this.sendingFlag">
+        Enviando ...
+      </h2>
+
+
+
       <button (click)="goTo('exam')">ATRAS</button>
       <button (click)="uploadFormToServer()">ENVIAR</button>
     </div>

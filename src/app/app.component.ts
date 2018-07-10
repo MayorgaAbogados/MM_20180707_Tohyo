@@ -33,6 +33,7 @@ export class AppComponent {
     "OTRO"
   ];
   isAreaOther = false;
+  sendingFlag = false;
   info = {
     name: "",
     email: "",
@@ -270,9 +271,13 @@ export class AppComponent {
     window.console.log("Submiting Form");
     let data = this.buildForm();
     let url = "http://abogados.mayorga.com.co/app/backend/main.php";
+    let self = this;
+    self.sendingFlag = true;
     axios
       .post(url, data)
       .then(function(response) {
+        self.sendingFlag = false;
+        self.goTo("self");
         window.console.log(response.data);
         window.console.log(response);
       })
