@@ -58,9 +58,13 @@ class MMDB{
     $queryValues = $queryValues.$data[(count($keys) - 1)].") ";
 
     $sql = "INSERT INTO db_especialistas".$queryKeys."VALUES ".$queryValues;
-
-
-    return $sql;
+    $returnvar = "";
+    if ($conn->query($sql) === TRUE) {
+        $returnvar = "New record created successfully";
+    } else {
+        $returnvar = "Error: " . $sql . "<br>" . $conn->error;
+    }
+    return $returnvar;
   }
 
 
