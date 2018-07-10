@@ -21,17 +21,22 @@ class MMDB{
     $DB_Host     = "127.0.0.1";
     $DB_Database   = "mayorgac_abogados";
     $DB_Table = "db_especialistas";
-    echo $DB_Database;
-    echo $DB_Host;
-    echo $DB_Password;
-    echo $DB_Username;
+    echo $DB_Database."\n";
+    echo "<br>";
+    echo $DB_Host."\n";
+    echo "<br>";
+    echo $DB_Password."\n";
+    echo "<br>";
+    echo $DB_Username."\n";
     $Conn = new mysqli($DB_Host,$DB_Username,$DB_Password,$DB_Database);
     if ($Conn->connect_error) {
        $connStatus =  $connStatus.$Conn->connect_error;
+       echo $connStatus;
     }
 
     if (!$Conn->set_charset("utf8")) {
          $connStatus =  $connStatus.$Conn->connect_error;
+         echo $connStatus;
     }
 
   }
