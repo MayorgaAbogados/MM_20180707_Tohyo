@@ -4,6 +4,7 @@
 // --- Main Settings ------------------------ //
 // ------------------------------------------ //
 
+ $varddf = ";Sdf";
   $DB_Username = "mayorgac_abogado";
   $DB_Password = "suaita.monteria";
   $DB_Host     = "localhost";
