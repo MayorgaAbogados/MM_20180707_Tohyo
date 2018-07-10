@@ -237,3 +237,48 @@ strong {
     display: block;
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: calc(100% - 70px);
+        padding: 22px;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        height: fit-content;
+        background-color: white;
+        display: block;
+        border-top: 12px solid rgb(111, 182, 255);
+        position: relative;
+        top: -70px;
+    }
+    .view h1 {
+        margin: 10px 5px;
+        font-weight: 700;
+        font-size: 12pt;
+    }
+    .view p {
+        font-size: 10pt;
+    }
+    .footer h3 {
+        font-size: 1em;
+        font-weight: 500;
+        width: calc(100% - 50px);
+        padding: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+        display: block;
+    }
+    .question input {
+        display: inline-block;
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+    }
+    .question input[type="year"] {
+        display: inline-block;
+        width: 80px;
+        padding: 5px;
+        margin: 5px;
+    }
+}
