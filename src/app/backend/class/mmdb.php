@@ -52,7 +52,7 @@ class MMDB{
 
     for ($x = 0; $x <= (count($keys) - 1); $x++) {
       $queryKeys = $queryKeys.$keys[$x].",";
-      $queryValues = $queryValues.$data[$x].",";
+      $queryValues = "'".$queryValues.$data[$x]."'".",";
     }
     $queryKeys = $queryKeys.$keys[(count($keys) - 1)].") ";
     $queryValues = $queryValues.$data[(count($keys) - 1)].") ";
