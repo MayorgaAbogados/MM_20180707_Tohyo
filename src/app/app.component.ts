@@ -230,7 +230,7 @@ export class AppComponent {
         _obj.isOk = false;
       }
     }
-    _obj.isOk = true;
+
     return _obj;
   }
 
@@ -277,7 +277,7 @@ export class AppComponent {
       .post(url, data)
       .then(function(response) {
         self.sendingFlag = false;
-        self.goTo("self");
+        self.goTo("thanks");
         window.console.log(response.data);
         window.console.log(response);
       })
