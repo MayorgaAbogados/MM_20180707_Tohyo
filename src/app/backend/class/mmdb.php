@@ -17,10 +17,6 @@ class MMDB{
     $t=time();
     $this->uploadTime = date("Y-m-d",$t);
 
-
-
-
-
   }
 
   function getDate(){
@@ -38,8 +34,6 @@ class MMDB{
     $DB_Database   = "mayorgac_abogados";
     $DB_Table = "db_especialistas";
 
-    $this->conn = $Conn;
-
     $Conn = new mysqli($DB_Host,$DB_Username,$DB_Password,$DB_Database);
     if ($Conn->connect_error) {
        $connStatus =  $connStatus.$Conn->connect_error;
@@ -50,8 +44,6 @@ class MMDB{
          $connStatus =  $connStatus.$Conn->connect_error;
          echo $connStatus;
     }
-
-    $conn = $this->conn;
 
     $keys = $form->keys;
     $data = $form->data;
@@ -68,10 +60,10 @@ class MMDB{
 
     $sql = "INSERT INTO db_especialistas".$queryKeys."VALUES ".$queryValues;
     $returnvar = "";
-    if ($conn->query($sql) === TRUE) {
+    if ( $Conn->query($sql) === TRUE) {
         $returnvar = "New record created successfully";
     } else {
-        $returnvar = "Error: " . $sql . "<br>" . $conn->error;
+        $returnvar = "Error: " . $sql . "<br>" .  $Conn->error;
     }
 
     $Conn->close();
