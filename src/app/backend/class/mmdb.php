@@ -34,6 +34,7 @@ class MMDB{
     $DB_Database   = "mayorgac_abogados";
     $DB_Table = "db_especialistas";
 
+    $connStatus = "";
     $Conn = new mysqli($DB_Host,$DB_Username,$DB_Password,$DB_Database);
     if ($Conn->connect_error) {
        $connStatus =  $connStatus.$Conn->connect_error;
@@ -51,7 +52,7 @@ class MMDB{
     $queryKeys = " (";
     $queryValues = " (";
 
-    for ($x = 0; $x <= (count($keys) - 1); $x++) {
+    for ($x = 0; $x < (count($keys) - 1); $x++) {
       $queryKeys = $queryKeys.$keys[$x].",";
       $queryValues = $queryValues."'".$data[$x]."'".",";
     }
@@ -60,7 +61,8 @@ class MMDB{
 
     $sql = "INSERT INTO db_especialistas".$queryKeys."VALUES ".$queryValues;
     $returnvar = "";
-    if ( $Conn->query($sql) === TRUE) {
+
+    if ( $Conn->query($sql) === TRUE ) {
         $returnvar = "New record created successfully";
     } else {
         $returnvar = "Error: " . $sql . "<br>" .  $Conn->error;
