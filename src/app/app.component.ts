@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Http } from "@angular/http";
-import axios from 'axios';
+import axios from "axios";
 
 @Component({
   selector: "app-root",
@@ -106,7 +106,7 @@ export class AppComponent {
     this.viewState = "welcome";
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
   buildForm() {
     let formData = new FormData();
     formData.append("name", this.info.name);
@@ -268,14 +268,15 @@ export class AppComponent {
   }
   uploadFormToServer() {
     window.console.log("Submiting Form");
-    let data= this.buildForm();
+    let data = this.buildForm();
     let url = "http://abogados.mayorga.com.co/app/backend/main.php";
-    axios.post(url,data)
-      .then(function (response) {
+    axios
+      .post(url, data)
+      .then(function(response) {
         window.console.log(response.data);
         window.console.log(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         window.console.log("error");
       });
   }

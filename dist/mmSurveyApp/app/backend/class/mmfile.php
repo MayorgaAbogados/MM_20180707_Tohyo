@@ -26,7 +26,8 @@ class MMFile{
     mkdir($filesPath);
 
     if(is_uploaded_file($temp)) {
-      if(move_uploaded_file($temp, $filesPath . $this->folder."/".$category. $name)) {
+      $newPath = $filesPath . $this->folder."/".$category. $name;
+      if(move_uploaded_file($temp, $newPath)) {
           echo "Sussecfully uploaded your image.";
       }
       else {

@@ -26,6 +26,7 @@
     'graduateYear',
     'area'
   );
+
   $mmForm = new MMForm($keys);
 
   $mFileProposal = new MMFile('FileProposal','Propuesta');
@@ -43,6 +44,7 @@
   }else{
     echo $mmDB->getConnStatus();
   }
+
   // --------------------------------------------//
 
 ?>
