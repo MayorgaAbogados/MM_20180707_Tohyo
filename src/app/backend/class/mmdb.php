@@ -8,6 +8,7 @@ class MMDB{
 
   private $uploadTime;
   private $connStatus;
+  private $form;
 
   function MMDB(){
 
@@ -21,13 +22,7 @@ class MMDB{
     $DB_Host     = "127.0.0.1";
     $DB_Database   = "mayorgac_abogados";
     $DB_Table = "db_especialistas";
-    echo $DB_Database."\n";
-    echo "<br>";
-    echo $DB_Host."\n";
-    echo "<br>";
-    echo $DB_Password."\n";
-    echo "<br>";
-    echo $DB_Username."\n";
+
     $Conn = new mysqli($DB_Host,$DB_Username,$DB_Password,$DB_Database);
     if ($Conn->connect_error) {
        $connStatus =  $connStatus.$Conn->connect_error;
@@ -47,7 +42,7 @@ class MMDB{
   function getConnStatus(){
     return $this->connStatus;
   }
-  function append($keys,$data){
+  function appendForm($form){
     return "ok";
   }
 

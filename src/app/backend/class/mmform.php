@@ -35,3 +35,27 @@ $FileConcepttype = $FileProposal['type'];
 $FileConcepterror = $FileProposal['error'];
 $FileConcepttemp = $FileProposal['tmp_name'];
 ?>
+
+<?php
+
+class MMForm{
+  private $keys;
+  private $data;
+
+  function MMForm($keys){
+    for ($x = 0; $x <= count($keys); $x++) {
+      $k = $x;
+      $value = $_POST[$keys[$k]];
+      $this->setDataByIndex($value,$k);
+    }
+    $this->keys = $keys;
+  }
+  function setDataByIndex($value,$k){
+    $this->data[$k] = $value;
+  }
+
+
+}
+
+
+?>

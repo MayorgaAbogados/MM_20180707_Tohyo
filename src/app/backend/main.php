@@ -10,14 +10,35 @@
   include('./class/mmform.php');
   include('./class/mmdb.php');
 
+  $keys = array(
+    'name',
+    'email',
+    'idNumber',
+    'idType',
+    'professionalCard',
+    'cellphone',
+    'city',
+    'address',
+    'phone',
+    'undergraduateInstitution',
+    'undergraduateYear',
+    'graduateInstitution',
+    'graduateYear',
+    'area'
+  );
+  $mmForm = new MMForm($keys);
+
   $mFileProposal = new MMFile('FileProposal');
   $mFileResource = new MMFile('FileResource');
   $mFileConcept = new MMFile('FileConcept');
 
   $mmDB = new MMDB();
 
-  echo $mmDB->getDate();
-  echo $mmDB->getConnStatus();
+  if(!$mmDB->getConnStatus()){
+    $mmDB.appendForm($mmForm);
+  }else{
+    echo $mmDB->getConnStatus();
+  }
   // --------------------------------------------//
 
 ?>
