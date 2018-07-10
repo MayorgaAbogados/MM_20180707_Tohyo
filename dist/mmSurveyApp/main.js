@@ -200,6 +200,7 @@ var AppComponent = /** @class */ (function () {
             window.scrollTo(0, 0);
         }
         else {
+            this.computedArea();
             var valid = this.checkView();
             if (valid.isOk) {
                 this.viewState = view;
@@ -207,6 +208,7 @@ var AppComponent = /** @class */ (function () {
                 window.scrollTo(0, 0);
             }
             else {
+                this.computedArea();
                 window.scrollTo(0, 0);
                 window.console.log(valid);
             }

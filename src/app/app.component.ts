@@ -150,12 +150,15 @@ export class AppComponent {
       this.computedArea();
       window.scrollTo(0, 0);
     } else {
+      this.computedArea();
       let valid = this.checkView();
+
       if (valid.isOk) {
         this.viewState = view;
         this.computedArea();
         window.scrollTo(0, 0);
       } else {
+        this.computedArea();
         window.scrollTo(0, 0);
         window.console.log(valid);
       }
