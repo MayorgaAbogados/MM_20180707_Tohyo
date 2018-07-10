@@ -39,8 +39,8 @@ $FileConcepttemp = $FileProposal['tmp_name'];
 <?php
 
 class MMForm{
-  private $keys;
-  private $data;
+  public $keys;
+  public $data;
 
   function MMForm($keys){
     for ($x = 0; $x <= count($keys); $x++) {
