@@ -269,7 +269,7 @@ export class AppComponent {
   uploadFormToServer() {
     window.console.log("Submiting Form");
     let data= this.buildForm();
-    let url = "http://abogados.mayorga.com.co/uploadForms.php";
+    let url = "http://abogados.mayorga.com.co/app/backend/main.php";
     axios.post(url,data)
       .then(function (response) {
         window.console.log(response.data);

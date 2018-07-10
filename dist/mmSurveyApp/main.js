@@ -319,7 +319,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.uploadFormToServer = function () {
         window.console.log("Submiting Form");
         var data = this.buildForm();
-        var url = "http://abogados.mayorga.com.co/uploadForms.php";
+        var url = "http://abogados.mayorga.com.co/app/backend/main.php";
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.post(url, data)
             .then(function (response) {
             window.console.log(response.data);
