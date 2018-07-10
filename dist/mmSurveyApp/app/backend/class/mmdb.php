@@ -43,7 +43,24 @@ class MMDB{
     return $this->connStatus;
   }
   function appendForm($form){
-    return "ok";
+
+    $keys = $form->keys;
+    $data = $form->data;
+
+    $queryKeys = " (";
+    $queryValues = " (";
+
+    for ($x = 0; $x <= (count($keys) - 1); $x++) {
+      $queryKeys = $queryKeys.$keys[$x].",";
+      $queryValues = $queryValues.$data[$x].",";
+    }
+    $queryKeys = $queryKeys.$keys[(count($keys) - 1)].") ";
+    $queryValues = $queryValues.$data[(count($keys) - 1)].") ";
+
+    $sql = "INSERT INTO db_especialistas".$queryKeys."VALUES ".$queryValues;
+
+
+    return $sql;
   }
 
 
