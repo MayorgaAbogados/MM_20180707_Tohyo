@@ -13,7 +13,7 @@ class MMFile{
   public $FileName;
 
   function MMFile($queryName,$category){
-    $iFile = $queryName;
+    $iFile = $_FILES[$queryName];
     $name = $iFile['name'];
     $type = $iFile['type'];
     $error = $iFile['error'];
