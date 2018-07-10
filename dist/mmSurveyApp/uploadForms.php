@@ -1,3 +1,35 @@
+<?php
+
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+$DB_Username = "mayorgac_abogados";
+$DB_Password = "suaita.monteria";
+$DB_Host     = "localhost";
+$DB_Database   = "mayorgac_abogados";
+$DB_Table = "db_especialistas";
+       
+$Conn = new mysqli($DB_Host , $DB_Username, $DB_Password, $DB_Database);
+// Check connection
+if ($Conn->connect_error) {
+    die("Connection failed : " . $Conn->connect_error);
+}  
+
+if (!$Conn->set_charset("utf8")) {
+printf("Error loading character set utf8: %s\n", $Conn->error);
+} else {
+
+}
+
+?>
+
+
+<?php
+
+   
+?>
+
+
 <?php 
 /*
 $data = array("Volvo", "BMW", "Toyota");
@@ -32,6 +64,16 @@ $FileProposalerror = $FileProposal['error'];
 $FileProposaltemp = $FileProposal['tmp_name'];
 
 
+$FileResourcename = $FileProposal['name'];
+$FileResourcetype = $FileProposal['type'];
+$FileResourceerror = $FileProposal['error'];
+$FileResourcetemp = $FileProposal['tmp_name'];
+
+$FileConceptname = $FileProposal['name'];
+$FileConcepttype = $FileProposal['type'];
+$FileConcepterror = $FileProposal['error'];
+$FileConcepttemp = $FileProposal['tmp_name'];
+
 
 
 //The path you wish to upload the image to
@@ -50,4 +92,8 @@ else {
     echo "Failed to upload your image.";
 }
 
+?>
+
+<?php 
+    $conn->close();
 ?>

@@ -8,7 +8,7 @@ $DB_Password = "suaita.monteria";
 $DB_Host     = "localhost";
 $DB_Database   = "mayorgac_abogados";
 $DB_Table = "db_especialistas";
-
+       
 $Conn = new mysqli($DB_Host , $DB_Username, $DB_Password, $DB_Database);
 // Check connection
 if ($Conn->connect_error) {
