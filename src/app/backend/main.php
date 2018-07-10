@@ -10,13 +10,14 @@
   include('./class/mmform.php');
   include('./class/mmdb.php');
 
-  //$mFileProposal = new MMFile();
-  //$mFileResource = new MMFile();
-  //$mFileConcept = new MMFile();
+  $mFileProposal = new MMFile('FileProposal');
+  $mFileResource = new MMFile('FileResource');
+  $mFileConcept = new MMFile('FileConcept');
 
   $mmDB = new MMDB();
 
   echo $mmDB->getDate();
+  echo $mmDB->getConnStatus();
   // --------------------------------------------//
 
 ?>
